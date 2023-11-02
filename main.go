@@ -3,13 +3,15 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"withChat/configs"
 )
 
 func Hello(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{"msg": "hello world"})
+	c.JSON(http.StatusOK, gin.H{"msg": "server port:" + configs.Config.Server.IP + configs.Config.Server.Port})
 }
 
 func main() {
+	configs.Init()
 
 	r := gin.Default()
 	r.GET("/ping", func(c *gin.Context) {
