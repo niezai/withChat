@@ -1,6 +1,15 @@
 server:
-  IP: 127.0.0.1
-  Port: 8877
+  ip: 127.0.0.1
+  port: 8877
+
 log:
-  logsPath: ./logs
-  logsName: ./log
+  log_path: ./logs
+  log_name: log.log
+
+mysql:
+  url: 127.0.0.1
+  port: 3306
+
+redis:
+  host: 127.0.0.1
+  port: 6379
