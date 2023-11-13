@@ -23,8 +23,11 @@ type config struct {
 }
 
 type Mysql struct {
-	Url  string
-	Port int
+	Username string
+	Password string
+	Db       string
+	Host     string
+	Port     int
 }
 
 type Redis struct {
