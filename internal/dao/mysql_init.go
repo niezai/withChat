@@ -1,6 +1,7 @@
 package dao
 
 import (
+	"context"
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -36,6 +37,7 @@ func init() {
 	sqlDB.SetMaxIdleConns(20)  //连接池最大允许的空闲连接数，如果没有sql任务需要执行的连接数大于20，超过的连接会被连接池关闭。
 }
 
-func GetDB() *gorm.DB {
-	return _db
+func NewDBClient(ctx context.Context) *gorm.DB {
+	db := _db
+	return db.WithContext(ctx)
 }
