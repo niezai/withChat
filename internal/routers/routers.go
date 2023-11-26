@@ -3,6 +3,7 @@ package routers
 import (
 	"github.com/gin-gonic/gin"
 	"withChat/internal/api/test"
+	v1 "withChat/internal/api/v1"
 	"withChat/pkg/gin/middleware"
 )
 
@@ -17,9 +18,10 @@ func NewRouter() *gin.Engine {
 
 	r.GET("hello", test.Hello)
 
-	v1 := r.Group("")
+	user := r.Group("/user")
 	{
-		v1.GET("/user/login")
+		user.GET("/login", v1.Login)
+		user.GET("/register", v1.Register)
 	}
 	return r
 }

@@ -3,6 +3,9 @@ package v1
 import (
 	"github.com/gin-gonic/gin"
 	"withChat/internal/model"
+	"withChat/internal/msg"
+	"withChat/internal/response"
+	"withChat/internal/service"
 )
 
 /**
@@ -12,7 +15,23 @@ import (
 
 */
 
+var userService *service.UserService
+
 func Login(c *gin.Context) {
-	var user model.User
+	var user model.LoginUser
+	if err := c.ShouldBind(&user); err != nil {
+		c.AbortWithError(msg.ERR_PARAMETER, err)
+		return
+	}
+
+	err := userService.Login(&user, c.Request.Context())
+	if err != nil {
+		response.Response(c, msg.FAIL, nil, msg.GetMsg(msg.FAIL))
+	} else {
+		response.Response(c, msg.SUCCESS, nil, msg.GetMsg(msg.SUCCESS))
+	}
+}
+
+func Register(c *gin.Context) {
 
 }

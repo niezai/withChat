@@ -4,7 +4,7 @@ import (
 	"gorm.io/gorm"
 )
 
-type Groups struct {
+type Group struct {
 	gorm.Model
 	UserId      int    `json:"user_id"`
 	GroupName   string `json:"name"`

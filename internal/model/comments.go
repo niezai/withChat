@@ -2,7 +2,7 @@ package model
 
 import "gorm.io/gorm"
 
-type Comments struct {
+type Comment struct {
 	gorm.Model
 	TypeId        int    `json:"type_id"`
 	CommentId     int    `json:"comment_id"`
