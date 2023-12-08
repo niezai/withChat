@@ -8,3 +8,10 @@ func Response(c *gin.Context, code int, data interface{}, msg string) {
 		msg:    msg,
 	})
 }
+
+func LoginResponse(c *gin.Context, code int, data interface{}, msg string) {
+	c.JSON(code, gin.H{
+		"Authentication": data,
+		msg:              msg,
+	})
+}

@@ -6,7 +6,7 @@ import (
 )
 
 type Server struct {
-	IP   string
+	Ip   string
 	Port string
 }
 
@@ -31,21 +31,22 @@ type Mysql struct {
 }
 
 type Redis struct {
-	Host string
-	Port int
+	Host     string
+	Port     int
+	Password string
+	Db       int
 }
 
 var Config config
 
 func Init() {
-	bytes, err := os.ReadFile("./configs/config.yml")
-	//bytes, err := os.ReadFile("../../configs/config.yml")  测试时使用这个
+	bytes, err := os.ReadFile("./config/config.yml")
+	//bytes, err := os.ReadFile("../../config/config.yml") //测试时使用这个
 	if err != nil {
 		panic(err)
 	}
 
 	err = yaml.Unmarshal(bytes, &Config)
-
 	if err != nil {
 		panic(err)
 	}

@@ -1,14 +1,16 @@
 package main
 
 import (
-	"withChat/internal/config"
-	"withChat/internal/routers"
+	"withChat/config"
+	"withChat/internal/db"
+	"withChat/internal/router"
 )
 
 func main() {
 	config.Init()
+	db.Initialize()
 
-	r := routers.NewRouter()
+	r := router.NewRouter()
 
 	r.Run(":" + config.Config.Server.Port)
 }

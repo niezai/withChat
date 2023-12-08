@@ -8,7 +8,7 @@ import (
 	"os"
 	"path"
 	"time"
-	"withChat/internal/config"
+	"withChat/config"
 )
 
 func LoggerToFile() gin.HandlerFunc {

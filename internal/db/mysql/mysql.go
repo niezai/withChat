@@ -1,4 +1,4 @@
-package dao
+package mysql
 
 import (
 	"context"
@@ -6,12 +6,12 @@ import (
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
-	"withChat/internal/config"
+	"withChat/config"
 )
 
 var _db *gorm.DB
 
-func init() {
+func InitializeMysql() {
 	username := config.Config.Mysql.Username
 	password := config.Config.Mysql.Password
 	host := config.Config.Mysql.Host

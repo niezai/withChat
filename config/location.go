@@ -1,5 +1,5 @@
-// Package configs used to locate config file.
-package configs
+// Package config used to locate config file.
+package config
 
 import (
 	"path/filepath"
